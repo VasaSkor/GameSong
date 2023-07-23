@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './assets/Logo.svg'
+import './styles/App.scss'
+import Header from "./components/Header";
 
 const App = () => {
     return (
         <div>
-          <p>Work</p>
-            <img src={logo} alt='logo'/>
+            <Header/>
         </div>
     );
 };
