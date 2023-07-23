@@ -1,4 +1,4 @@
-.footer{
+.footer {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -7,39 +7,30 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   height: 20vh;
-}
 
-.footer__year{
-  color: #FFF;
-  text-align: center;
-  text-shadow: 0 4px 4px 0 #000;
-  font-family: Aldrich, serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  transition: all 0.5s ease-in-out;
-}
+  &__year {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 4px 4px 0 #000;
+    font-family: Aldrich, serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: all 0.5s ease-in-out;
 
-.footer__year:hover{
-  color: #720000;
-}
+    &:hover {
+      color: #720000;
+    }
+  }
 
-.footer__icon--github{
-  filter: none;
-  transition: all 0.5s ease-in-out;
-}
+  &__icon--github,
+  &__icon--rss {
+    filter: none;
+    transition: all 0.5s ease-in-out;
 
-
-.footer__icon--github:hover{
-  filter: drop-shadow(5px 5px 5px #e41919) invert(5%);
-}
-
-.footer__icon--rss{
-  filter: none;
-  transition: all 0.5s ease-in-out;
-}
-
-.footer__icon--rss:hover{
-  filter: drop-shadow(5px 5px 5px #e41919) invert(5%);
+    &:hover {
+      filter: drop-shadow(5px 5px 5px #e41919) invert(5%);
+    }
+  }
 }
