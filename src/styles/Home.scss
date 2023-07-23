@@ -1,5 +1,4 @@
 $main-font: 'Aldrich', serif;
-$main-font-size: 128px;
 $main-font-weight: 400;
 $main-line-height: normal;
 
@@ -16,7 +15,7 @@ $main-line-height: normal;
     text-align: center;
     text-shadow: 0 4px 4px 0 #000;
     font-family: $main-font;
-    font-size: $main-font-size;
+    font-size: 99px;
     font-style: normal;
     font-weight: $main-font-weight;
     line-height: $main-line-height;
@@ -26,7 +25,7 @@ $main-line-height: normal;
     color: #800;
     text-align: center;
     font-family: $main-font;
-    font-size: $main-font-size;
+    font-size: 99px;
     font-style: normal;
     font-weight: $main-font-weight;
     line-height: $main-line-height;
@@ -38,6 +37,27 @@ $main-line-height: normal;
 
     &:active {
       color: #b40c0c;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    &__text,
+    &__link {
+      font-size: 60px;
+    }
+  }
+
+  @media (max-width: 750px) {
+    &__text,
+    &__link {
+      font-size: 45px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__text,
+    &__link {
+      font-size: 35px;
     }
   }
 }
