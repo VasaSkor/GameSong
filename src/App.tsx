@@ -1,12 +1,23 @@
 import React from 'react';
-import './styles/App.scss'
-import Header from "./components/Header";
+import './styles/App.scss';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/pages/Home';
+import Game from './components/pages/Game';
+import Gallery from './components/pages/Gallery';
 
 const App = () => {
     return (
-        <div>
-            <Header/>
-        </div>
+        <Router>
+            <div>
+                <Header />
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/game' element={<Game />} />
+                    <Route path='/gallery' element={<Gallery />} />
+                </Routes>
+            </div>
+        </Router>
     );
 };
 
