@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './components/pages/Home';
 import Game from './components/pages/Game';
 import Gallery from './components/pages/Gallery';
+import Footer from "./components/Footer";
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path='/game' element={<Game />} />
                     <Route path='/gallery' element={<Gallery />} />
                 </Routes>
+                <Footer />
             </div>
         </Router>
     );
