@@ -1,0 +1,77 @@
+.audio_player {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 350px;
+
+  @media (max-width: 1535px) {
+    width: 250px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 80%;
+  }
+}
+
+.audio_player_timeline {
+  display: flex;
+  width: 285px;
+  justify-content: space-between;
+
+  @media (max-width: 1535px) {
+    width: 255px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.audio_player_timeline-text {
+  color: #FFF;
+  text-align: center;
+  font-family: Aldrich, serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  @media (max-width: 1535px) {
+    font-size: 23px;
+  }
+
+  @media (max-width: 1100px) {
+    font-size: 30px;
+  }
+}
+
+.audio_player_change_btn {
+  width: 97.923px;
+  height: 100px;
+  margin-bottom: 20px;
+
+  @media (max-width: 1535px) {
+    width: 80.923px;
+    height: 85px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 1395px) {
+    width: 80.923px;
+    height: 85px;
+    margin-bottom: 35px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 75.923px;
+    height: 85px;
+    margin-bottom: 25px;
+  }
+}
+
+.change_volume {
+  @media (max-width: 1100px) {
+    margin-bottom: 50px;
+  }
+}

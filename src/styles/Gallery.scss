@@ -1,0 +1,22 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .card_container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 30px 40px 20px;
+    flex-basis: calc(50% - 50px);
+
+    @media (max-width: 1395px) {
+      flex-basis: calc(70% - 100px);
+      margin: 40px 0 40px 0;
+    }
+
+    @media (max-width: 815px) {
+      flex-basis: calc(90% - 5px);
+      margin: 40px 0 40px 0;
+    }
+  }
+}
