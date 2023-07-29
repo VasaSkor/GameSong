@@ -4,6 +4,7 @@ import styles from './MyInput.module.scss';
 interface MyInputProps {
     value: number;
     onChange?: (value: number) => void;
+    onSeek?: (value: number) => void;
     min: number;
     max: number;
     step: number;
@@ -16,6 +17,7 @@ const MyInput: React.FC<MyInputProps> = ({ value ,
                                              max,
                                              width = '30%',
                                              onChange,
+                                             onSeek,
                                              className}) => {
     const sliderRef = useRef<HTMLDivElement>(null);
     const [inputValue, setInputValue] = useState<number>(value);
@@ -37,10 +39,21 @@ const MyInput: React.FC<MyInputProps> = ({ value ,
         const percentage = (offsetX / rect.width) * 100;
         updateValue(percentage);
 
+        if (onSeek) {
+            const seekValue = (percentage / 100) * (max - min) + min;
+            onSeek(seekValue);
+        }
+
+
         const handleMouseMove = (e: MouseEvent) => {
             const offsetX = e.clientX - rect.left;
             const percentage = (offsetX / rect.width) * 100;
             updateValue(percentage);
+
+            if (onSeek) {
+                const seekValue = (percentage / 100) * (max - min) + min;
+                onSeek(seekValue);
+            }
         };
 
         const handleMouseUp = () => {
