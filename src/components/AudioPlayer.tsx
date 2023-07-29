@@ -59,6 +59,7 @@ const AudioPlayer = ({
         }
     };
 
+    // eslint-disable-next-line
     const handleAudioEnded = () => {
         setCurrentTime(0);
         setProgressPercentage(0);
@@ -100,7 +101,9 @@ const AudioPlayer = ({
         return () => {
             if (audioRef.current) {
                 audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
+                // eslint-disable-next-line
                 audioRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
+                // eslint-disable-next-line
                 audioRef.current.addEventListener('ended', handleAudioEnded);
             }
         };
