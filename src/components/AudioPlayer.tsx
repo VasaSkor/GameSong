@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState, useCallback} from 'react';
 import MyInput from "./UI/input/MyInput";
 import '../styles/AudioPlayer.scss';
 import play from '../assets/icon/Play.png';
@@ -35,6 +35,7 @@ const AudioPlayer = ({
     const [progressPercentage,
         setProgressPercentage] = useState<number>(0);
     const [volume, setVolume] = useState<number>(50);
+    const [isEnded, setIsEnded] = useState<boolean>(false);
 
 
 
@@ -46,7 +47,7 @@ const AudioPlayer = ({
         }
     };
 
-    const togglePlay = () => {
+    const togglePlay = useCallback(() => {
         if (audioRef.current) {
             if (isPlaying) {
                 audioRef.current.play();
@@ -57,17 +58,17 @@ const AudioPlayer = ({
             setIsPlayingIcon(!isPlaying);
             setCurrentAudioId(audioPlayer.id);
         }
-    };
+    }, [audioPlayer.id, isPlaying, setCurrentAudioId, setIsPlaying]);
 
-    // eslint-disable-next-line
-    const handleAudioEnded = () => {
+    const handleAudioEnded = useCallback(() => {
         setCurrentTime(0);
         setProgressPercentage(0);
         setIsPlaying(false);
-        setIsPlayingIcon(false)
-    };
+        setIsPlayingIcon(false);
+    }, [setIsPlaying]);
 
     useEffect(() => {
+        const audioElement = audioRef.current;
         if (audioRef.current) {
             if (currentAudioId === audioPlayer.id) {
                 audioRef.current.play();
@@ -93,18 +94,21 @@ const AudioPlayer = ({
             }
         };
 
+        const handleEnded = () => {
+            setIsEnded(true);
+        };
+
         if (audioRef.current) {
             audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
             audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
+            audioRef.current.addEventListener('ended', handleEnded);
         }
 
         return () => {
-            if (audioRef.current) {
-                audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
-                // eslint-disable-next-line
-                audioRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
-                // eslint-disable-next-line
-                audioRef.current.addEventListener('ended', handleAudioEnded);
+            if (audioElement) {
+                audioElement.removeEventListener('timeupdate', handleTimeUpdate);
+                audioElement.removeEventListener('loadedmetadata', handleLoadedMetadata);
+                audioElement.addEventListener('ended', handleEnded);
             }
         };
     }, [audioPlayer.id, currentAudioId, setIsPlaying, handleAudioEnded]);
@@ -136,6 +140,16 @@ const AudioPlayer = ({
             }
         }
     };
+
+    useEffect(() => {
+        setIsEnded(false);
+    }, [currentAudioId]);
+
+    useEffect(() => {
+        if (isEnded) {
+            togglePlay();
+        }
+    }, [isEnded, togglePlay]);
 
 
     return (
