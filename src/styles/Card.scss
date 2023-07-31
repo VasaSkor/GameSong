@@ -40,6 +40,11 @@
       line-height: normal;
       margin-top: 20px;
       margin-bottom: 10px;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: rgba(238, 238, 238, 0.93);
+      }
     }
 
     &_title_ln {
@@ -51,6 +56,11 @@
       font-weight: 400;
       line-height: normal;
       margin-bottom: 20px;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: rgba(194, 194, 194, 0.93);
+      }
     }
   }
 

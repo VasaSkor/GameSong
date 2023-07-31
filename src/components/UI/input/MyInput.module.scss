@@ -3,6 +3,14 @@
   width: 30%;
   height: 10px;
   background: #D9D9D9;
+
+  &:hover{
+    background: #bebebe;
+  }
+
+  &:active{
+    background: #9E9E9E;
+  }
 }
 
 .slider {
@@ -10,5 +18,14 @@
   top: 0;
   left: 0;
   height: 100%;
+  background: linear-gradient(to right, #F80000, #8D0000);
+
+  &:hover{
+    background: linear-gradient(to right, #E00000, #5E0000)
+  }
+
+  &:active{
+    background: linear-gradient(to right, #E00000, #5E0000)
+  }
 }
 

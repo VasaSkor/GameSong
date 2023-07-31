@@ -83,8 +83,7 @@ const MyInput: React.FC<MyInputProps> = ({ value ,
                 width: width,
             }}
         >
-            <div className={styles.slider} style={{ width: `${inputValue}%`,
-                background: 'linear-gradient(to right, #F80000, #8D0000)'}} />
+            <div className={styles.slider} style={{ width: `${inputValue}%`}} />
         </div>
     );
 };

@@ -172,7 +172,7 @@ const AudioPlayer = ({
                 <p className='audio_player_timeline-text'>{formatTime(duration)}</p>
             </div>
             <img
-                className='audio_player_change_btn'
+                className='audio_player_change_btn volume'
                 src={volume > 0 ? volumeOn : volumeOff}
                 alt={audioPlayer.altVolume}
                 onClick={toggleMute}
