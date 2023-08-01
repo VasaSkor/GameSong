@@ -1,9 +1,13 @@
 import React from 'react';
+import '../../styles/Game.scss'
+import QuizQuestions from "../QuizQuisition";
+import Quiz from "../Quiz";
 
 const Game = () => {
     return(
         <div className='game'>
-            <h1>GAME</h1>
+            <QuizQuestions/>
+            <Quiz/>
         </div>
     )
 };
