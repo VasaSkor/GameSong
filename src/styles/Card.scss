@@ -168,7 +168,7 @@
       align-items: center;
       justify-content: space-around;
       height: 640px;
-      margin-top: 260px;
+      margin-top: 330px;
     }
     &_description {
       display: flex;
@@ -196,7 +196,14 @@
       align-items: center;
       justify-content: space-around;
       height: 600px;
-      margin-top: 240px;
+      margin-top: 340px;
+    }
+
+    &_description {
+      display: flex;
+      align-items: center;
+      background: var(--gray, rgba(63, 63, 63, 0.65));
+      margin: 450px 0 25px 0;
     }
   }
 
