@@ -15,34 +15,21 @@ const Quiz: React.FC = () => {
 
     const quizItems: QuizItem[] = [
         { id: 'Genshin', text: 'Genshin Impact' },
-        { id: 'TES', text: 'TES' },
-        { id: 'Witcher', text: 'Witcher' },
-        { id: 'Witcher23', text: 'Witcher23' },
-        { id: 'Test', text: 'Test' },
+        { id: 'TES', text: 'Tes V: Skyrim' },
+        { id: 'Minecraft', text: 'Minecraft' },
+        { id: 'Witcher', text: 'The Witcher 3' },
+        { id: 'Left 4 Dead 2', text: 'Left 4 Dead 2' },
     ];
 
     return (
         <div className='answer'>
-            <div className='answer__card'>
-                {quizItems.map((item) => (
-                    <div key={item.id} className='answer__card__block'>
-                        <div className='answer__card__block__elipse' />
-                        <p className='answer__card__block__text'>
-                            {item.text}
-                        </p>
-                    </div>
-                ))}
-                <button className='answer__card__block_but'>
-                   Next
-                </button>
-            </div>
             <div className='answer__card_container'>
                 <Card
                     card={{
                         id: 'Genshin',
                         title: '***',
                         titleLn: '***',
-                        description: 'Послушайте аудио!!!',
+                        description: 'Listen audio!!!',
                         src: quiz,
                         alt: 'Quiz_image',
                     }}
@@ -57,6 +44,19 @@ const Quiz: React.FC = () => {
                         }
                     }}
                 />
+            </div>
+            <div className='answer__card'>
+                {quizItems.map((item) => (
+                    <div key={item.id} className='answer__card__block'>
+                        <div className='answer__card__block__elipse' />
+                        <p className='answer__card__block__text'>
+                            {item.text}
+                        </p>
+                    </div>
+                ))}
+                <button className='answer__card__block_but'>
+                   Next
+                </button>
             </div>
         </div>
     );
