@@ -161,7 +161,7 @@ const translations: Translations = {
         EverlastingSummerTitle: 'Бесконечное Лето',
         GTATitle: 'Угонщик автомобилей 4',
         HearthstoneTitle: 'Сердце камня',
-        IsaacTitle: 'Жертвоприношение Иссака',
+        IsaacTitle: 'Связывание Иссака',
         StarRailTitle: 'Звездный экспресс',
         FalloutTitle: 'Осадки 4',
         AtomicTitle: 'Атомное сердце',
