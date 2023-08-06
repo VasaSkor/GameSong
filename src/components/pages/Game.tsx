@@ -1,4 +1,5 @@
 import React from 'react';
+import { QuizProvider } from '../QuizContext';
 import '../../styles/Game.scss'
 import QuizQuestions from "../QuizQuisition";
 import Quiz from "../Quiz";
@@ -6,8 +7,10 @@ import Quiz from "../Quiz";
 const Game = () => {
     return(
         <div className='game'>
-            <QuizQuestions/>
-            <Quiz/>
+            <QuizProvider>
+                <QuizQuestions/>
+                <Quiz/>
+            </QuizProvider>
         </div>
     )
 };

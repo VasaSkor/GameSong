@@ -10,6 +10,7 @@ interface CardProps {
         description: string;
         src: string;
         alt: string;
+        audioSrc: string;
     };
     isPlaying: boolean;
     setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
@@ -25,6 +26,7 @@ const Card: React.FC<CardProps> = ({
                                        setCurrentAudioId,
                                    }) => {
 
+
     return (
         <div className="card">
             <div className="card_contain">
@@ -37,6 +39,7 @@ const Card: React.FC<CardProps> = ({
                         id: card.id,
                         alt: 'Play_button',
                         altVolume: 'Volume_icon',
+                        audioSrc: card.audioSrc
                     }}
                     isPlaying={isPlaying}
                     setIsPlaying={setIsPlaying}
