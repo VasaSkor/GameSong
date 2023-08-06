@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/QuizQuisition.scss';
 import { useQuizContext } from './QuizContext';
+import {useLanguageContext} from "./LanguageContext";
+import translations from "../script/translations";
 
 interface QuizContainerProps {
     text: string;
@@ -16,18 +18,31 @@ const QuizContainer: React.FC<QuizContainerProps> = ({ text, isCurrentQuestion }
 };
 
 const QuizQuestions: React.FC = () => {
+    const { currentLanguage } = useLanguageContext();
+    const { Beginner,
+        Easy,
+        Medium,
+        Hard,
+        Adept,
+        Legend,
+        Great,
+        Cool,
+        Titan,
+        God,
+        scoreText,
+    } = translations[currentLanguage];
     const { score, currentIndex } = useQuizContext();
     const quizItems: string[] = [
-        'Beginner',
-        'Easy',
-        'Medium',
-        'Hard',
-        'Adept',
-        'Legend',
-        'Great',
-        'Cool',
-        'Titan',
-        'God',
+        Beginner,
+        Easy,
+        Medium,
+        Hard,
+        Adept,
+        Legend,
+        Great,
+        Cool,
+        Titan,
+        God,
     ];
 
     return (
@@ -42,7 +57,7 @@ const QuizQuestions: React.FC = () => {
                 ))}
             </div>
             <div className='score'>
-                <p className='score_text'>Score</p>
+                <p className='score_text'>{scoreText}</p>
                 <p className='score_text'>{score}</p>
             </div>
         </div>
