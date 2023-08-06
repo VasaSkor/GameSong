@@ -11,6 +11,7 @@ interface AudioPlayerData {
     id: string;
     alt: string;
     altVolume: string;
+    audioSrc: string;
 }
 
 interface AudioPlayerProps {
@@ -37,6 +38,13 @@ const AudioPlayer = ({
     const [volume, setVolume] = useState<number>(50);
     const [isEnded, setIsEnded] = useState<boolean>(false);
 
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.src = audioPlayer.audioSrc;
+            setProgressPercentage(0);
+        }
+    }, [audioPlayer.audioSrc]);
+
 
 
     const handleSeek = (seekValue: number) => {
@@ -47,10 +55,10 @@ const AudioPlayer = ({
         }
     };
 
-    const togglePlay = useCallback(() => {
+    const togglePlay = useCallback(async () => {
         if (audioRef.current) {
             if (isPlaying) {
-                audioRef.current.play();
+                await audioRef.current.play();
             } else {
                 audioRef.current.pause();
             }
@@ -129,11 +137,9 @@ const AudioPlayer = ({
     const toggleMute = () => {
         if (audioRef.current) {
             if (volume > 0) {
-                // Был включен звук, выключаем его
                 audioRef.current.volume = 0;
                 setVolume(0);
             } else {
-                // Был выключен звук, включаем его и устанавливаем предыдущую громкость
                 const newVolume = volume === 0 ? 50 : volume;
                 audioRef.current.volume = newVolume / 100;
                 setVolume(newVolume);
@@ -147,7 +153,9 @@ const AudioPlayer = ({
 
     useEffect(() => {
         if (isEnded) {
-            togglePlay();
+            (async () => {
+                await togglePlay();
+            })();
         }
     }, [isEnded, togglePlay]);
 
@@ -185,7 +193,7 @@ const AudioPlayer = ({
                      width="50%"
                      onChange={handleVolumeChange} />
             <audio ref={audioRef}>
-                <source src={`/audio/${audioPlayer.id}.mp3`} />
+                <source src={audioPlayer.audioSrc} />
                 Your browser does not support the audio element.
             </audio>
         </div>
