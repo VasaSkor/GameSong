@@ -1,11 +1,7 @@
-// Define any shared variables if needed
-
-// Default card styles
 .card {
   background: rgba(33, 33, 33, 0.87);
   flex-wrap: wrap;
 
-  // Card container styles
   &_contain {
     display: flex;
     flex-direction: row;
@@ -15,12 +11,10 @@
     margin-top: 50px;
   }
 
-  // Card image styles
   &_image {
     width: 367px;
   }
 
-  // Card audio styles
   &_audio {
     display: flex;
     align-items: center;
@@ -29,7 +23,6 @@
     width: 22vw;
     background: var(--gray, rgba(63, 63, 63, 0.65));
 
-    // Card audio title styles
     &_title {
       color: #FFFFFF;
       text-align: center;
@@ -64,14 +57,13 @@
     }
   }
 
-  // Card description styles
   &_description {
     display: flex;
     align-items: center;
     background: var(--gray, rgba(63, 63, 63, 0.65));
     margin: 46px 15px 40px;
+    width: 810px;
 
-    // Card description text styles
     &_text {
       color: #FFF;
       font-family: Aldrich, serif;
@@ -83,7 +75,6 @@
     }
   }
 
-  // Media queries
   @media (max-width: 1535px) {
     &_audio {
       height: 480px;
@@ -109,6 +100,7 @@
     }
     &_description {
       margin: 5px 15px 25px;
+      width: 710px;
     }
   }
 
@@ -127,6 +119,7 @@
     }
     &_description {
       margin: 55px 15px 25px;
+      width: 710px;
     }
     &_audio_title {
       color: #FFF;
@@ -175,6 +168,7 @@
       align-items: center;
       background: var(--gray, rgba(63, 63, 63, 0.65));
       margin: 450px 0 25px 0;
+      width: 710px;
     }
   }
 
@@ -204,6 +198,19 @@
       align-items: center;
       background: var(--gray, rgba(63, 63, 63, 0.65));
       margin: 450px 0 25px 0;
+      width: auto;
+      max-width: 579px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    &_description {
+      display: flex;
+      align-items: center;
+      background: var(--gray, rgba(63, 63, 63, 0.65));
+      margin: 360px 0 25px 0;
+      width: auto;
+      max-width: 579px;
     }
   }
 

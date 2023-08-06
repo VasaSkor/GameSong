@@ -21,6 +21,10 @@
   border: solid #000000;
 }
 
+.quiz_container.current {
+  background: green;
+}
+
 .quiz_container_text{
   color: #FFF;
   text-align: center;
