@@ -52,7 +52,9 @@ const quizItemsBase: QuizItemBase[] = [
     { id: 'Star',
         title: 'Star Rail',
         titleLn: 'Star Rail',
-        description: 'star',
+        description: 'Honkai Star Rail is a free-to-play turn-based RPG that uses original characters and' +
+            ' familiar units from HoYoverse\'s other beloved title – Honkai Impact. However, unlike Genshin' +
+            ' Impact and Honkai Impact, Star Rail purely focuses on turn-based action.',
         src: star,
         alt: 'star_image',},
 
